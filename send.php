@@ -7,9 +7,9 @@ $flag = 0;
 
 $name = $_POST['names'];
 $email = $_POST['email'];
-$bio = $_POST['comment'];
+$bio = $_POST['bio'];
 
-$date = $_POST['dates'];
+$date = $_POST['dayofbirth'];
 $test_arr_date  = explode('-', $date);
 
 switch($_POST['gender']) {
