@@ -5,8 +5,8 @@ $err = [];
 $flag = 0;
 
 
-$name = $_POST['names'];
-$email = $_POST['email'];
+$name = $_GET['names'];
+$email = $_GET['email'];
 $bio = $_POST['bio'];
 
 $date = $_POST['dayofbirth'];
@@ -75,7 +75,7 @@ if($power4 == 1){
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(!preg_match($regname,$name)){
+    if(!preg_match($regname,$_POST['names'])){
         $err['name'] = '<small class=" text-danger">Введите имя кирилицей</small>';
         $flag = 1;
     }
