@@ -15,6 +15,11 @@
 </head>
 
 <body class="webform">
+
+    <?php
+    include('send.php');
+    ?>
+
     <div class="webform">
         <div class="container">
             <div class="row">
