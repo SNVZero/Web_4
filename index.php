@@ -1,5 +1,5 @@
 <?php
-include_once('send.php');
+include('send.php');
 ?>
 
 <!DOCTYPE html>
