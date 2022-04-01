@@ -94,7 +94,7 @@ if($power4 == 1){
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(!preg_match($regname,$_POST['names'])){
+    if(!preg_match($regname,$name)){
         $err['name'] = '<small class=" text-danger">Введите имя кирилицей</small>';
         $flag = 1;
     }
@@ -113,8 +113,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <div class="row">
                 <div class="col">
                     <div class="webform__form d-flex justify-content-center">
-                        <form id="form" class="form__body"
-                            action="" method="POST">
+                        <form id="form" class="form__body" method="POST">
                             <div>
                                 <input class="webform__form-elem form__input _req" id="names" type="text" name="name"
                                     placeholder="Имя" value="">
