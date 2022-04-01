@@ -29,7 +29,7 @@ include_once('send.php');
                             action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                             <div>
                                 <input class="webform__form-elem form__input _req" id="names" type="text" name="names"
-                                    placeholder="Имя" value="<?php echo $_POST['name'] ?>">
+                                    placeholder="Имя" value="<?php echo $_POST['names'] ?>">
                                 <?php echo $err['name'] ?>
                             </div>
                             <div>
