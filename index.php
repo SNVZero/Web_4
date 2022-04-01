@@ -86,6 +86,12 @@ if($power4 == 1){
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!preg_match($regname,$name)){
         $err['name'] = '<small class=" text-danger">Введите имя кирилицей</small>';
+        $flag = 1;
+    }
+
+    if(empty($name)){
+        $err['name'] = '<small class=" text-danger">Поле не может быть пустым</small>';
+        $flag = 1;
     }
 }
 
