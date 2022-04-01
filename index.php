@@ -114,7 +114,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <div class="col">
                     <div class="webform__form d-flex justify-content-center">
                         <form id="form" class="form__body"
-                            action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                            action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                             <div>
                                 <input class="webform__form-elem form__input _req" id="names" type="text" name="names"
                                     placeholder="Имя" value="<?php echo $_POST['names'] ?>">
