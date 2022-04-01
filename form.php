@@ -1,3 +1,6 @@
+<?php
+include_once('index.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
-        <title>Задание 3</title>
+        <title>Задание 4</title>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
@@ -68,18 +71,14 @@
                                 <input class="checkbox__input _req" type="checkbox" id="userAgreement"  name="agree">
                                  <label class="checkbox__label" for="userAgreement">Отправляя заявку, я даю согласие на<a>обработку своих персональных данных</a>.<span>*</span></label>
                             </div>
-
                             <div>
                                 <input class="webform__form-btn" type="submit" name="submit" value="Отправить">
                             </div>
                         </form>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
-   <script src="js/script.js"></script>
 </body>
 </html>
