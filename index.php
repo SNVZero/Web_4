@@ -15,7 +15,7 @@ $flag = 0;
 
 
 $name = $_POST['names'];
-$mail = $_POST['email'];
+$email = $_POST['email'];
 $bio = $_POST['comment'];
 
 $date = $_POST['dates'];

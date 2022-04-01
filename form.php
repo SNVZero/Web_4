@@ -20,11 +20,11 @@ include_once('index.php');
             <div class="row">
                 <div class="col">
                     <div class="webform__form d-flex justify-content-center">
-                        <form id="form" class="form__body">
+                        <form id="form" class="form__body" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                             <div>
                                 <input class="webform__form-elem form__input _req" id="names" type="text" name="names"
-                                    placeholder="Имя"  >
-                                    <?php echo $err['name']; ?>
+                                    placeholder="Имя" value="<?php echo $_POST['name'] ?>"  >
+                                    <?php echo $err['name'] ?>
                             </div>
                              <div>
                                 <input class="webform__form-elem form__input _req _email" id="email" type="email" name="email"
