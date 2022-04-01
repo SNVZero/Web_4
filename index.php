@@ -1,7 +1,3 @@
-<?php
-include('send.php');
-?>
-
 <!DOCTYPE html>
 <html>
 
