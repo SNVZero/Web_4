@@ -1,3 +1,7 @@
+<?php
+include_once('send.php');
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +24,7 @@
             <div class="row">
                 <div class="col">
                     <div class="webform__form d-flex justify-content-center">
-                        <form id="form" class="form__body" method="POST" action="send.php">
+                        <form id="form" class="form__body" method="POST">
                             <div>
                                 <input class="webform__form-elem form__input _req" id="names" type="text" name="name"
                                     placeholder="Имя" value="">
