@@ -56,7 +56,7 @@
                                     </div>
                             </div>
                             <div>
-                                <textarea id="comment" class="webform__form-elem form__input _req" type="text" name="bio" placeholder="Биография" value= "<?php print($value['bio']); ?>" ></textarea>
+                                <textarea id="comment" class="webform__form-elem form__input _req" type="text" name="bio" placeholder="Биография" ><?php print($value['bio']); ?></textarea>
                                 <div class="text-danger err "
                                     <?php
                                         if(!$error['bio']){
