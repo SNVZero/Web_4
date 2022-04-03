@@ -26,21 +26,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if($error['name_empty']){
         setcookie('name_error_empty','',1);
         $message['name_empty'] = TRUE;
+        $message['name'] = FALSE;
     }
 
     if($error['name']){
         setcookie('name_error','',1);
+        $message['name_empty'] = FALSE;
         $message['name'] = TRUE;
     }
 
     if($error['email_empty']){
         setcookie('email_error_empty','',1);
         $message['email_empty'] = TRUE;
+        $message['email'] = FALSE;
     }
 
     if($error['email']){
         setcookie('email_error','',1);
         $message['email'] = TRUE;
+        $message['email_empty'] = FALSE;
     }
 
     if($error['bio']){
@@ -89,8 +93,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $value_ability[2] = ' ';
     $value_ability[3] = ' ';
 
-    }else
+    }else{
     $value_ability = explode(',',$_COOKIE['ability_value']);
+    $a = count($value_ability)-1;
+    for(count($a;$a<4;$a++){
+        $value_ability[$A] = '';
+    }
+    }
     $value['agree'] = empty($_COOKIE['agree_value']) ? '' : $_COOKIE['agree_value'];
 
     include('form.php');
