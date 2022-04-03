@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         setcookie('name_value',$_POST['name']);
         $errors = TRUE;
     }else{
-        setcookie('name_value',$_POST['name'],time() + 24 * 60 * 60 * 30 * 12 )
+        setcookie('name_value',$_POST['name'],time() + 24 * 60 * 60 * 30 * 12 );
     }
 
     if(empty($_POST['email'])){
