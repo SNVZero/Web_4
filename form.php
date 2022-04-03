@@ -95,9 +95,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $value['year'] = empty($_COOKIE['year_value']) ? '' : $_COOKIE['year_value'];
     $value['gender'] = empty($_COOKIE['gender_value']) ? '' : $_COOKIE['gender_value'];
     $value['limbs'] = empty($_COOKIE['limbs_value']) ? '' : $_COOKIE['limbs_value'];
-    if(empty($_COOKIE['ability_value']))
-    $value_ability['ability'] = array();
-    else
+    if(empty($_COOKIE['ability_value'])){
+    $value_ability[] = array();
+
+    $value_ability[0] = ' ';
+    $value_ability[1] = ' ';
+    $value_ability[2] = ' ';
+    $value_ability[3] = ' ';
+
+    }else
     $value_ability = explode(',',$_COOKIE['ability_value']);
     $value['agree'] = empty($_COOKIE['agree_value']) ? '' : $_COOKIE['agree_value'];
 
@@ -234,7 +240,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                     placeholder="Имя" value= "<?php print($value['name']); ?>" >
                                     <div class="text-danger err "
                                         <?php
-                                            if(!$error['name_empty'] || !$error['namne']){
+                                            if(!$error['name_empty'] || !$error['name']){
                                                 print('hidden');
                                             }
                                         ?>
@@ -251,7 +257,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                              <div>
                                 <input class="webform__form-elem form__input _req _email" id="email" type="email" name="email"
                                         placeholder="E-mail" value= "<?php print($value['email']); ?>">
-                                        <div class="text-danger err ">
+                                        <div class="text-danger err "
+                                        <?php
+                                            if(!$error['email_empty'] || !$error['email']){
+                                                print('hidden');
+                                            }
+                                        ?>
+                                        >
                                         <?php
                                             if($massage['email_empty'] == TRUE){
                                                 print('Поле не может быть пустым');
@@ -263,7 +275,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             </div>
                             <div>
                                 <textarea id="comment" class="webform__form-elem form__input _req" type="text" name="bio" placeholder="Биография" value= "<?php print($value['bio']); ?>" ></textarea>
-                                <div class="text-danger err ">
+                                <div class="text-danger err "
+                                    <?php
+                                        if(!$error['bio']){
+                                            print('hidden');
+                                        }
+                                    ?>
+                                >
                                         <?php
                                             if($massage['bio'] == TRUE){
                                                 print('Поле не может быть пустым');
@@ -274,7 +292,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             <div class="form_item form-group">
                                 <label for="formDate" style="color: white;">Дата рождения:</label>
                                 <input type="date" class="form_input form__input _req form-control w-50  bg-white rounded" name="year" id="dates" value="<?php print($value['year']); ?>">
-                                <div class="text-danger err ">
+                                <div class="text-danger err "
+                                <?php
+                                        if(!$error['year']){
+                                            print('hidden');
+                                        }
+                                    ?>
+                                >
                                         <?php
                                             if($massage['year'] == TRUE){
                                                 print('Укажите дату рождения');
@@ -304,7 +328,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                     />
                                     <label for="female" id="female">женский</label>
                                 </div>
-                                <div class="text-danger err ">
+                                <div class="text-danger err "
+                                <?php
+                                        if(!$error['gender']){
+                                            print('hidden');
+                                        }
+                                    ?>
+                                >
                                         <?php
                                             if($massage['gender'] == TRUE){
                                                 print('Укажите пол');
@@ -346,7 +376,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                     ?>
                                 >
                                 <label for="16" id="16">16</label>
-                                <div class="text-danger err ">
+                                <div class="text-danger err "
+                                <?php
+                                        if(!$error['limbs']){
+                                            print('hidden');
+                                        }
+                                    ?>
+                                >
                                         <?php
                                             if($massage['limbs'] == TRUE){
                                                 print('Укажите количество конечностей');
@@ -385,7 +421,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                         ?>
                                     >лазеры из глаз</option>
                                 </select>
-                                <div class="text-danger err ">
+                                <div class="text-danger err "
+                                <?php
+                                        if(!$error['ability']){
+                                            print('hidden');
+                                        }
+                                    ?>
+                                >
                                         <?php
                                             if($massage['ability'] == TRUE){
                                                 print('Укажите одну или несколько способностей');
@@ -403,7 +445,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                 >
                                  <label class="checkbox__label" for="userAgreement">Отправляя заявку, я даю согласие на<a>обработку своих персональных данных</a>.<span>*</span></label>
                             </div>
-                            <div class="text-danger err ">
+                            <div class="text-danger err "
+                            <?php
+                                        if(!$error['agree']){
+                                            print('hidden');
+                                        }
+                                    ?>
+                            >
                                         <?php
                                             if($massage['agree'] == TRUE){
                                                 print('Пожалуйста подтвердите согласие на обработку данных');
