@@ -438,7 +438,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             <div class="form__checkbox">
                                 <input class="checkbox__input _req" type="checkbox" id="userAgreement"  name="agree"
                                     <?php
-                                        if($massage['agree'] == TRUE ){
+                                        if($value['agree']){
                                             pring('checked');
                                         }
                                     ?>
