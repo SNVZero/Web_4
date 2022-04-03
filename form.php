@@ -221,7 +221,7 @@
                                 <input class="checkbox__input _req" type="checkbox" id="userAgreement"  name="agree"
                                     <?php
                                         if($value['agree']){
-                                            pring('checked');
+                                            print('checked');
                                         }
                                     ?>
                                 >
