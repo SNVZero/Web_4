@@ -96,9 +96,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $value['gender'] = empty($_COOKIE['gender_value']) ? '' : $_COOKIE['gender_value'];
     $value['limbs'] = empty($_COOKIE['limbs_value']) ? '' : $_COOKIE['limbs_value'];
     if(empty($_COOKIE['ability_value']))
-    $values_ability['ability'] = array();
+    $value_ability['ability'] = array();
     else
-    $values_ability = explode(',',$_COOKIE['ability_value']);
+    $value_ability = explode(',',$_COOKIE['ability_value']);
     $value['agree'] = empty($_COOKIE['agree_value']) ? '' : $_COOKIE['agree_value'];
 
 
@@ -232,7 +232,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             <div>
                                 <input class="webform__form-elem form__input _req"  id="names" type="text" name="name"
                                     placeholder="Имя" value= "<?php print($value['name']); ?>" >
-                                    <div class="text-danger err ">
+                                    <div class="text-danger err "
+                                        <?php
+                                            if(!$error['name_empty'] || !$error['namne']){
+                                                print('hidden');
+                                            }
+                                        ?>
+                                    >
                                         <?php
                                             if($massage['name_empty'] == TRUE){
                                                 print('Поле не может быть пустым');
