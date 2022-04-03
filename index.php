@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $value_ability = explode(',',$_COOKIE['ability_value']);
     $a = count($value_ability)-1;
     for($a ; $a < 4 ; $a++){
-        $value_ability[$A] = '';
+        $value_ability[$a] = '';
     }
     }
     $value['agree'] = empty($_COOKIE['agree_value']) ? '' : $_COOKIE['agree_value'];
