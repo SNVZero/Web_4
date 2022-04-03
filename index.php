@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }else{
     $value_ability = explode(',',$_COOKIE['ability_value']);
     $a = count($value_ability)-1;
-    for(count($a;$a<4;$a++){
+    for($a ; $a < 4 ; $a++){
         $value_ability[$A] = '';
     }
     }
