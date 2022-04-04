@@ -5,10 +5,12 @@ header('Content-Type: text/html; charset=UTF-8');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $message = array();
+    $message['alert'] = TRUE;
 
     if(!empty($_COOKIE['save'])){
         setcookie('save','',1);
-        $message['succsess']= TRUE;
+        $message['success'] = TRUE;
+        $message['alert'] = FALSE;
     }
 
     $error = array();
@@ -209,6 +211,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     if ($errors) {
         header('Location: index.php');
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
+
         exit();
     }
     else {
@@ -242,7 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $stmt = $db->prepare("INSERT INTO ability SET human_id = ?, superabilities = ?");
             $stmt -> execute([$count, $ability]);
 
-            $message['succsess']= TRUE;
+            $message['success']= TRUE;
 
         }catch(PDOException $e){
             print('Error : ' . $e->getMessage());

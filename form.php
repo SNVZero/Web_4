@@ -17,6 +17,29 @@
                 <div class="col">
                     <div class="webform__form d-flex justify-content-center">
                         <form id="form" class="form__body" method="post" action="">
+                            <div class="alert
+                                <?php
+                                    if($message['success'] == TRUE){
+                                        print('alert-success');
+                                    }else{
+                                        print('alert-danger');
+                                    }
+                                ?>"
+                                role="alert"
+                                <?php
+                                    if($message['alert'] == TRUE){
+                                        print('hidden');
+                                    }
+                                ?>
+                            >
+                                <?php
+                                    if($message['success'] == TRUE){
+                                        print('Данные успешно сохранены');
+                                    }else{
+                                        print('Неправильно введенны данные')
+                                    }
+                                ?>
+                            </div>
                             <div>
                                 <input class="webform__form-elem form__input _req"  id="names" type="text" name="name"
                                     placeholder="Имя" value= "<?php print($value['name']); ?>" >
