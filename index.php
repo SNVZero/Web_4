@@ -12,10 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         setcookie('save','',1);
         $message['success'] = TRUE;
         $message['alert'] = FALSE;
-    }else{
-        $message['success'] = FALSE;
-        $message['alert'] = FALSE;
     }
+
+
 
     $error = array();
 
@@ -35,54 +34,74 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         setcookie('name_error_empty','',1);
         $message['name_empty'] = TRUE;
         $message['name'] = FALSE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     if($error['name']){
         setcookie('name_error','',1);
         $message['name_empty'] = FALSE;
         $message['name'] = TRUE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     if($error['email_empty']){
         setcookie('email_error_empty','',1);
         $message['email_empty'] = TRUE;
         $message['email'] = FALSE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     if($error['email']){
         setcookie('email_error','',1);
         $message['email'] = TRUE;
         $message['email_empty'] = FALSE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     if($error['bio']){
         setcookie('bio_error','',1);
         $message['bio'] = TRUE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     if ($error['year']) {
         setcookie('year_error', '', 100000);
         $message['year'] = TRUE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     if ($error['gender']) {
         setcookie('gender_error', '', 100000);
         $message['gender'] = TRUE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     if ($error['limbs']) {
         setcookie('limbs_error', '', 100000);
         $message['limbs'] = TRUE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     if($error['ability']){
         setcookie('ability_error','',1);
         $message['ability'] = TRUE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     if($error['agree']){
         setcookie('agree_error','',1);
         $message['agree'] = TRUE;
+        $message['success'] = FALSE;
+        $message['alert'] = FALSE;
     }
 
     $value = array();
