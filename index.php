@@ -6,11 +6,14 @@ header('Content-Type: text/html; charset=UTF-8');
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $message = array();
     $message['alert'] = TRUE;
-    $message['success'] = FALSE;
+
 
     if(!empty($_COOKIE['save'])){
         setcookie('save','',1);
         $message['success'] = TRUE;
+        $message['alert'] = FALSE;
+    }else{
+        $message['success'] = FALSE;
         $message['alert'] = FALSE;
     }
 
