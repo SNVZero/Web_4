@@ -95,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $value_ability[2] = ' ';
     $value_ability[3] = ' ';
 
+
     }else{
     $value_ability = explode(',',$_COOKIE['ability_value']);
     $a = count($value_ability)-1;
@@ -117,19 +118,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
     if($power1 == 1){
-        $ability .= 'immortal' . ',';
+        $ability = 'immortal' . ',';
     }
 
-    if($power2 == 1){
+    if($power2 == 1 && !empty($ability)){
         $ability .= 'noclip' . ',';
+    }else if($power2 == 1 && empty($ability)){
+        $ability = 'noclip' . ',';
     }
 
-    if($power3 == 1){
+    if($power3 == 1 && !empty($ability)){
         $ability .= 'flying' . ',';
+    }else if($power3 == 1 && empty($ability)){
+        $ability = 'flying' . ',';
     }
 
-    if($power4 == 1){
+    if($power4 == 1 && !empty($ability)){
         $ability .= 'lazer' . ',';
+    }else if($power4 == 1 && empty($ability)){
+        $ability = 'lazer' . ',';
     }
 
     if(empty(htmlentities($_POST['name']))){
