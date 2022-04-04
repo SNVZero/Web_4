@@ -97,11 +97,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
     }else{
-    $value_ability = explode(',',$_COOKIE['ability_value']);
-    $a = count($value_ability)-1;
-    for($a ; $a < 4 ; $a++){
-        $value_ability[$a] = '';
-    }
+        $value_ability = explode(',',$_COOKIE['ability_value']);
+        $a = count($value_ability)-1;
+        for($a ; $a < 4 ; $a++){
+            $value_ability[$a] = '';
+        }
     }
     $value['agree'] = empty($_COOKIE['agree_value']) ? '' : $_COOKIE['agree_value'];
 
@@ -207,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 
-    }if ($errors) {
+    if ($errors) {
         header('Location: index.php');
         exit();
     }
@@ -247,15 +247,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         }
 
 
-        setcookie('save','1');
+    setcookie('save','1');
 
-        header('Location: index.php');
-
-
-
-
-
+    header('Location: index.php');
 
 }
+
 
 ?>
