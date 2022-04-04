@@ -205,11 +205,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         setcookie('agree_value', $_POST['agree'], time() + 12 * 30 * 24 * 60 * 60);
       }
 
-      if ($errors) {
+
+    try{
+
+    }  icat
+    ch{
+    }f ($errors) {
         header('Location: index.php');
         exit();
-      }
-      else {
+    }
+    else {
         setcookie('name_error_empty','', 1);
         setcookie('name_error', '', 100000);
         setcookie('email_error_empty','',1);
@@ -220,11 +225,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         setcookie('limbs_error', '', 1);
         setcookie('ability_error','', 1);
         setcookie('checkbox_error', '', 1);
+    }
+
+        $user = 'u46502';
+        $pass = '3119750';
+        $db = new PDO('mysql:host=localhost;dbname=u46502', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+
+        try{
+            $stmt = $db->prepare("INSERT INTO people SET name = ?, mail = ?, bio = ?, date = ?, gender = ?, limbs = ?");
+            $stmt -> execute([$_POST['name'], $_POST['email'], $_POST['bio'], $_POST['year'], $_POST['gender'], $_POST['limbs']]);
+
+            $res = $db->query("SELECT max(id) FROM people");
+            $row = $res->fetch();
+            $count = (int) $row[0];
+
+            $stmt = $db->prepare("INSERT INTO ability SET human_id = ?, superabilities  = ?");
+            $stmt -> execute([$count, $value_ability]);
+
+            $message['succsess']= TRUE;
+
+        }catch(PDOException $e){
+            print('Error : ' . $e->getMessage());
+            exit();
+        }
+
 
         setcookie('save','1');
 
         header('Location: index.php');
-      }
+
 
 
 
