@@ -238,9 +238,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $count = (int) $row[0];
 
 
-             // Запись в таблицу superability
+
             $stmt = $db->prepare("INSERT INTO ability SET human_id = ?, superabilities = ?");
-            $stmt -> execute(array([$count, $value_ability]));
+            $stmt -> execute(array([$count, $ability]));
 
             $message['succsess']= TRUE;
 
