@@ -206,11 +206,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       }
 
 
-    try{
 
-    }  icat
-    ch{
-    }f ($errors) {
+    }if ($errors) {
         header('Location: index.php');
         exit();
     }
