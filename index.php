@@ -230,7 +230,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         try{
             $stmt = $db->prepare("INSERT INTO people SET name = ?, mail = ?, bio = ?, date = ?, gender = ?, limbs = ?");
-            $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['year'],$_POST['gender'],$_POST['limbs']));
+            $stmt -> execute(array($_POST['name'],$_POST['email'],$_POST['bio'],$_POST['year'],$_POST['gender'],$_POST['limbs']));
 
 
             $message['succsess']= TRUE;
