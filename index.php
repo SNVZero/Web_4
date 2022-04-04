@@ -1,4 +1,6 @@
 <?php
+//Почему-то проверка имени только строчными сисволами и не записываются абилити
+
 header('Content-Type: text/html; charset=UTF-8');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -106,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 }else if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    $regname = '/^.*[^А-яЁё].*$/';
+    $regname ='/^[а-яЁё]+$/iu';
     $errors = FALSE;
     $power1=in_array('s1',$_POST['capabilities']) ? '1' : '0';
     $power2=in_array('s2',$_POST['capabilities']) ? '1' : '0';
@@ -119,21 +121,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 
     if($power2 == 1){
-        $ability = 'noclip' . ',';
+        $ability .= 'noclip' . ',';
     }
 
     if($power3 == 1){
-        $ability = 'flying' . ',';
+        $ability .= 'flying' . ',';
     }
 
     if($power4 == 1){
-        $ability = 'lazer' . ',';
+        $ability .= 'lazer' . ',';
     }
 
     if(empty(htmlentities($_POST['name']))){
         setcookie('name_error_empty','1',time() + 24 * 60 * 60);
         $errors = TRUE;
-    }else if(preg_match($regname, $_POST['name'])){
+    }else if(!preg_match($regname, $_POST['name'])){
         setcookie('name_error','1',time() + 24 * 60 * 60);
         setcookie('name_value',$_POST['name']);
         $errors = TRUE;
