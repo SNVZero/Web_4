@@ -224,14 +224,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         setcookie('checkbox_error', '', 1);
     }
 
-        $user = 'u46502';
-        $pass = '3119750';
+        $user = 'u46878';
+        $pass = '2251704';
         $db = new PDO('mysql:host=localhost;dbname=u46502', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
         try{
+
             $stmt = $db->prepare("INSERT INTO people SET name = ?, mail = ?, bio = ?, date = ?, gender = ?, limbs = ?");
             $stmt -> execute(array($_POST['name'],$_POST['email'],$_POST['bio'],$_POST['year'],$_POST['gender'],$_POST['limbs']));
 
+            $res = $db->query("SELECT max(id) FROM people");
+            $row = $res->fetch();
+            $count = (int) $row[0];
+
+
+             // Запись в таблицу superability
+            $stmt = $db->prepare("INSERT INTO ability SET human_id = ?, superabilities = ?");
+            $stmt -> execute(array([$count, $value_ability]));
 
             $message['succsess']= TRUE;
 
