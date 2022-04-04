@@ -240,7 +240,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
             $stmt = $db->prepare("INSERT INTO ability SET human_id = ?, superabilities = ?");
-            $stmt -> execute(array([$count, $ability]));
+            $stmt -> execute([$count, $ability]);
 
             $message['succsess']= TRUE;
 
