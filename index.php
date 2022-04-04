@@ -232,9 +232,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $stmt = $db->prepare("INSERT INTO people SET name = ?, mail = ?, bio = ?, date = ?, gender = ?, limbs = ?");
             $stmt -> execute([$_POST['name'], $_POST['email'], $_POST['bio'], $_POST['year'], $_POST['gender'], $_POST['limbs']]);
 
-            $res = $db->query("SELECT max(id) FROM people");
+            $res = $db->query("SELECT COALESCE(MAX(id), 1) FROM people");
             $row = $res->fetch();
-            $count = (int) $row[0];
+            $count = (int)$row[0];
 
             $stmt = $db->prepare("INSERT INTO ability SET human_id = ?, superabilities  = ?");
             $stmt -> execute([$count, $value_ability]);
