@@ -174,7 +174,7 @@
                             </div>
                             <div class="capabilities">
                                 <select name="capabilities[]" size="2" multiple>
-                                    <option value="s1 "
+                                    <option value="s1"
                                         <?php
                                             if($value_ability[0] == 'immortal'){
                                                 print('selected');
