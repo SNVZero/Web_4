@@ -9,7 +9,7 @@
         <title>Задание 4</title>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
-
+0
 <body class="webform">
     <div class="webform">
         <div class="container">
@@ -41,7 +41,14 @@
                                 ?>
                             </div>
                             <div>
-                                <input class="webform__form-elem form__input _req"  id="names" type="text" name="name"
+                                <input class="webform__form-elem form__input _req
+                                                <?php
+                                                    if($message['name_empty'] == TRUE || $message['name'] == TRUE){
+                                                    print('_error');
+                                                    }
+                                                ?>
+                                              "  
+                                       id="names" type="text" name="name"
                                     placeholder="Имя" value= "<?php print($value['name']); ?>" >
                                     <div class="text-danger err "
                                         <?php
@@ -60,7 +67,14 @@
                                     </div>
                             </div>
                              <div>
-                                <input class="webform__form-elem form__input _req _email" id="email" type="email" name="email"
+                                <input class="webform__form-elem form__input _req _email
+                                                <?php
+                                                    if($message['email_empty'] == TRUE || $message['email'] == TRUE){
+                                                    print('_error');
+                                                    }
+                                                ?>
+                                              " 
+                                       id="email" type="email" name="email"
                                         placeholder="E-mail" value= "<?php print($value['email']); ?>">
                                         <div class="text-danger err "
                                         <?php
@@ -79,7 +93,11 @@
                                     </div>
                             </div>
                             <div>
-                                <textarea id="comment" class="webform__form-elem form__input _req" type="text" name="bio" placeholder="Биография" ><?php print($value['bio']); ?></textarea>
+                                <textarea id="comment" class="webform__form-elem form__input  <?php
+                                                    if($message['bio'] == TRUE){
+                                                    print('_error');
+                                                    }
+                                                ?> _req" type="text" name="bio" placeholder="Биография" ><?php print($value['bio']); ?></textarea>
                                 <div class="text-danger err "
                                     <?php
                                         if(!$error['bio']){
@@ -96,7 +114,11 @@
                             </div>
                             <div class="form_item form-group">
                                 <label for="formDate" style="color: white;">Дата рождения:</label>
-                                <input type="date" class="form_input form__input _req form-control w-50  bg-white rounded" name="year" id="dates" value="<?php print($value['year']); ?>">
+                                <input type="date" class="form_input form__input _req form-control w-50  bg-white rounded
+                                                           if($message['year'] == TRUE){
+                                                    print('_error');
+                                                    }
+                                                          " name="year" id="dates" value="<?php print($value['year']); ?>">
                                 <div class="text-danger err "
                                 <?php
                                         if(!$error['year']){
