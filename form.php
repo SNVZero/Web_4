@@ -9,7 +9,7 @@
         <title>Задание 4</title>
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
-0
+
 <body class="webform">
     <div class="webform">
         <div class="container">
@@ -263,7 +263,12 @@
                                 </div>
                             </div>
                             <div class="form__checkbox">
-                                <input class="checkbox__input _req" type="checkbox" id="userAgreement"  name="agree"
+                                <input class="checkbox__input _req
+                                                if($message['agree'] == TRUE){
+                                                    print('_error');
+                                                    }
+                                              " 
+                                       type="checkbox" id="userAgreement"  name="agree"
                                     <?php
                                         if($value['agree']){
                                             print('checked');
